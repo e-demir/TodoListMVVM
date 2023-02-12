@@ -26,7 +26,7 @@ struct ListView: View {
             leading: EditButton(),
             trailing:
                 NavigationLink("Add", destination: {
-                    Text("Destination")
+                    AddView()
                 }))
         
     }
