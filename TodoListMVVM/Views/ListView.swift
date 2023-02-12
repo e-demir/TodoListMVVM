@@ -14,11 +14,20 @@ struct ListView: View {
         RowItemModel(title: "Give a kiss", completed: true)
     ]
     
+    func deleteItem(indexSet : IndexSet){
+        items.remove(atOffsets: indexSet)
+    }
+    func moveItem(indexSet : IndexSet, to : Int){
+        items.move(fromOffsets: indexSet, toOffset: to)
+    }
+    
     var body: some View {
         List {
             ForEach(items) { item in
                 ListRowView(item: item)
             }
+            .onDelete(perform: deleteItem)
+            .onMove(perform: moveItem)
         }
         .listStyle(.plain)
         .navigationTitle("ToDo 📝")
