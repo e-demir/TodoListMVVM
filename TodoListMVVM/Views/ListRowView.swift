@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ListRowView: View {
+    let title: String
+    
     var body: some View {
         HStack{
             Image(systemName: "checkmark.circle")
-            Text("First item of list")
+            Text(title)
         }
     }
 }
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView()
+        ListRowView(title: "First item of the list")
     }
 }

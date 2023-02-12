@@ -10,7 +10,7 @@ import SwiftUI
 struct ListView: View {
     var body: some View {
         List {
-            ListRowView()
+            ListRowView("This is the first item ")
         }.navigationTitle("ToDo 📝")
     }
 }
