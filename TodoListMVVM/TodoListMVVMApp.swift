@@ -20,7 +20,9 @@ import SwiftUI
 struct TodoListMVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }            
         }
     }
 }
