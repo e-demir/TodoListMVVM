@@ -20,11 +20,12 @@ struct ListView: View {
                 ListRowView(title: $0)
             }
         }
+        .listStyle(.plain)
         .navigationTitle("ToDo 📝")
         .navigationBarItems(
             leading: EditButton(),
             trailing:
-                NavigationLink("Add", destination: { 
+                NavigationLink("Add", destination: {
                     Text("Destination")
                 }))
         
