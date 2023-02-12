@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/*
+ MVVM Architecture
+ 
+ Model - data point
+ View - UI
+ ViewModel - manages models for view
+ 
+ */
+
 @main
 struct TodoListMVVMApp: App {
     var body: some Scene {
