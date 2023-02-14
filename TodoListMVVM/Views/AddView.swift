@@ -11,10 +11,29 @@ struct AddView: View {
     @State var note: String = ""
     @EnvironmentObject var listViewModel : ListViewModel
     @Environment(\.presentationMode) var presentationMode
+    @State var isAlertShown : Bool = false
+    @State var alertTitle : String = ""
     
     func saveButtonPressed(){
-        listViewModel.addItem(title: note)
-        presentationMode.wrappedValue.dismiss() 
+        if isTitleValid(){
+            listViewModel.addItem(title: note)
+            presentationMode.wrappedValue.dismiss()
+        }else{
+            alertTitle = "Boş geçme aslan"
+            isAlertShown.toggle()
+        }                
+    }
+    
+    func showAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
+    }
+    
+    
+    func isTitleValid() -> Bool {
+        if note.count > 2 {
+            return true
+        }
+        return false
     }
     
     var body: some View {
@@ -41,6 +60,9 @@ struct AddView: View {
                 
         }
         .navigationTitle("Add note 🖊")
+        .alert(isPresented: $isAlertShown) {
+            showAlert()
+        }
     }
 }
 
