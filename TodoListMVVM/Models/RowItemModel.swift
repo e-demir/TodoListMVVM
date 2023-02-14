@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RowItemModel: Identifiable {
+struct RowItemModel: Identifiable, Codable {
     let id: String
     let title: String
     let completed: Bool
